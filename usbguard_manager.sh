@@ -61,6 +61,7 @@ add_device_to_whitelist() {
     device_id=$1
     echo -e "Ajout du périphérique ${YELLOW}$device_id${NC} à la whitelist..."
     usbguard allow-device $device_id
+    sudo usbguard list-devices | sed 's/^[0-9]*: //' | sudo tee /etc/usbguard/rules.conf
 }
 
 # Fonction pour retirer un périphérique de la whitelist
@@ -73,6 +74,7 @@ remove_device_to_whitelist() {
     device_id=$1
     echo -e "Suppression du périphérique ${YELLOW}$device_id${NC} de la whitelist..."
     usbguard block-device $device_id
+    sudo usbguard list-devices | sed 's/^[0-9]*: //' | sudo tee /etc/usbguard/rules.conf
 }
 
 # Menu principal
