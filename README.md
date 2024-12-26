@@ -1,8 +1,11 @@
 # usbguard_manager
 
+Basée sur https://usbguard.github.io/
+
 Fonctionne sur Ubuntu.
 
-Il faut installer usbguard.
+Pré-requis :
+- install usbguard
 
 ```
 sudo apt install usbguard
